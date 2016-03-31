@@ -1,0 +1,17 @@
+# Do not track archive files.
+*.a
+
+# Do not track object files.
+*.o
+
+# Do not track dependency files.
+*.d
+
+# Do not track executable files.
+*.x
+
+# Do not track documentary files.
+doc/
+
+# Do not track "makefile", as this is just a copy of "Makefile" with customized path variables.
+makefile
