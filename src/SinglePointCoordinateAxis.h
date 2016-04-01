@@ -10,6 +10,8 @@ namespace MultiDimGrid
 	 * 
 	 * This can be used in scenarios where a generic CoordinateAxis is expected though one is only interested in a single
 	 * coordinate value.
+	 * 
+	 * Author: Robert Lilow, ITA, ZAH, Heidelberg University (2016)
 	 */
 	class SinglePointCoordinateAxis : public CoordinateAxis
 	{

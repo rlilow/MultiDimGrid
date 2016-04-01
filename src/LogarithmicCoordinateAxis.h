@@ -12,6 +12,8 @@ namespace MultiDimGrid
 	 * 
 	 * The interpolation weights correspond to a logarithmic interpolation and the integration weights to a summed trapezoidal
 	 * quadrature rule under the change of variables x -> log_10(x).
+	 * 
+	 * Author: Robert Lilow, ITA, ZAH, Heidelberg University (2016)
 	 */
 	class LogarithmicCoordinateAxis : public CoordinateAxis
 	{

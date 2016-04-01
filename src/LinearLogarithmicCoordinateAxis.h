@@ -16,6 +16,8 @@ namespace MultiDimGrid
 	 * 
 	 * The interpolation and integration weights correspond to the ones described in LinearCoordinateAxis and LinearLogarithmicCoordinateAxis,
 	 * respectively.
+	 * 
+	 * Author: Robert Lilow, ITA, ZAH, Heidelberg University (2016)
 	 */
 	class LinearLogarithmicCoordinateAxis : public CoordinateAxis
 	{

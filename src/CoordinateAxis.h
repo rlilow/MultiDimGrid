@@ -16,6 +16,8 @@ namespace MultiDimGrid
 	 * to an interpolation linear in the coordinate spacing as well as suitable integration weights.
 	 * 
 	 * Coordinate axes with specific coordinate spacings are implemented as classes derived from this base class.
+	 * 
+	 * Author: Robert Lilow, ITA, ZAH, Heidelberg University (2016)
 	 */
 	class CoordinateAxis
 	{
