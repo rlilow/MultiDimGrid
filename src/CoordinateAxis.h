@@ -109,12 +109,12 @@ namespace MultiDimGrid
 		/**
 		 * Returns the number of axis intervals.
 		 */
-		double interval_number () const;
+		std::size_t interval_number () const;
 		
 		/**
 		 * Returns the number of axis points.
 		 */
-		double point_number () const;
+		std::size_t point_number () const;
 		
 		/**
 		 * Dynamically creates a copy of this coordinate axis, using the copy-constructor, and returns a pointer to
@@ -163,12 +163,12 @@ namespace MultiDimGrid
 		/**
 		 * Number of axis intervals.
 		 */
-		double IntervalNumber;
+		std::size_t IntervalNumber;
 		
 		/**
 		 * Number of axis points.
 		 */
-		double PointNumber;
+		std::size_t PointNumber;
 		
 		/**
 		 * Checks if the axis point \a axisPoint is out of range. If that is the case, an error message is written to the

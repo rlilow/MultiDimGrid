@@ -148,9 +148,9 @@ MultiDimGrid::Coordinates<Dim> MultiDimGrid::GridFunction<Dim>::coordinates_at_i
 }
 
 template <std::size_t Dim>
-double MultiDimGrid::GridFunction<Dim>::integration_weight (const GridPoint<Dim>& gridPoint) const
+MultiDimGrid::DoubleArray<Dim> MultiDimGrid::GridFunction<Dim>::integration_weights (const GridPoint<Dim>& gridPoint) const
 {
-	double weight = 1.0;
+	DoubleArray<Dim> weights;
 	
 	for ( std::size_t i_axis = 0; i_axis < Dim; ++i_axis )
 	{
@@ -160,16 +160,16 @@ double MultiDimGrid::GridFunction<Dim>::integration_weight (const GridPoint<Dim>
 		
 		check_axis_point(axisPoint, axis, "integration_weight");
 		
-		weight *= axis->integration_weight_unchecked(axisPoint);	// the overall integration weight of a grid point is given by the product of the integration weights of each of its individual axis points
+		weights[i_axis] = axis->integration_weight_unchecked(axisPoint);	// read off the integration weight of the corresponding axis point
 	}
 	
-	return weight;
+	return weights;
 }
 
 template <std::size_t Dim>
-double MultiDimGrid::GridFunction<Dim>::integration_weight_unchecked (const GridPoint<Dim>& gridPoint) const
+MultiDimGrid::DoubleArray<Dim> MultiDimGrid::GridFunction<Dim>::integration_weights_unchecked (const GridPoint<Dim>& gridPoint) const
 {
-	double weight = 1.0;
+	DoubleArray<Dim> weights;
 	
 	for ( std::size_t i_axis = 0; i_axis < Dim; ++i_axis )
 	{
@@ -177,24 +177,24 @@ double MultiDimGrid::GridFunction<Dim>::integration_weight_unchecked (const Grid
 		
 		const CoordinateAxis* axis = CoordAxes[i_axis];
 		
-		weight *= axis->integration_weight_unchecked(axisPoint);	// the overall integration weight of a grid point is given by the product of the integration weights of each of its individual axis points
+		weights[i_axis] = axis->integration_weight_unchecked(axisPoint);	// read off the integration weight of the corresponding axis point
 	}
 	
-	return weight;
+	return weights;
 }
 
 template <std::size_t Dim>
-double MultiDimGrid::GridFunction<Dim>::integration_weight_at_index (const std::size_t index) const
+MultiDimGrid::DoubleArray<Dim> MultiDimGrid::GridFunction<Dim>::integration_weights_at_index (const std::size_t index) const
 {
 	check_index(index, "integration_weight_at_index");
 	
-	return integration_weight_at_index_unchecked(index);
+	return integration_weights_at_index_unchecked(index);
 }
 
 template <std::size_t Dim>
-double MultiDimGrid::GridFunction<Dim>::integration_weight_at_index_unchecked (const std::size_t index) const
+MultiDimGrid::DoubleArray<Dim> MultiDimGrid::GridFunction<Dim>::integration_weights_at_index_unchecked (const std::size_t index) const
 {
-	double weight = 1.0;
+	DoubleArray<Dim> weights;
 	
 	std::size_t reducedIndex = index;
 	
@@ -206,12 +206,12 @@ double MultiDimGrid::GridFunction<Dim>::integration_weight_at_index_unchecked (c
 		
 		const CoordinateAxis* axis = CoordAxes[i_axis];
 		
-		weight *= axis->integration_weight_unchecked(axisPoint);	// the overall integration weight of a grid point is given by the product of the integration weights of each of its individual axis points
+		weights[i_axis] = axis->integration_weight_unchecked(axisPoint);	// read off the integration weight of the corresponding axis point
 		
 		reducedIndex -= axisPoint * stride;
 	}
 	
-	return weight;
+	return weights;
 }
 
 template <std::size_t Dim>
@@ -345,7 +345,7 @@ double MultiDimGrid::GridFunction<Dim>::operator() (const Coordinates<Dim>& coor
 }
 
 template <std::size_t Dim>
-MultiDimGrid::GridPoint<Dim> MultiDimGrid::GridFunction<Dim>::index_strides () const
+MultiDimGrid::IntegerArray<Dim> MultiDimGrid::GridFunction<Dim>::index_strides () const
 {
 	return IndexStrides;
 }
@@ -400,9 +400,9 @@ MultiDimGrid::CoordinateAxisPointers<Dim> MultiDimGrid::GridFunction<Dim>::copy_
 }
 
 template <std::size_t Dim>
-MultiDimGrid::GridPoint<Dim> MultiDimGrid::GridFunction<Dim>::compute_index_strides (const MultiDimGrid::CoordinateAxisPointers<Dim>& coordAxisPointers) const
+MultiDimGrid::IntegerArray<Dim> MultiDimGrid::GridFunction<Dim>::compute_index_strides (const MultiDimGrid::CoordinateAxisPointers<Dim>& coordAxisPointers) const
 {
-	GridPoint<Dim> indexStrides;
+	IntegerArray<Dim> indexStrides;
 	
 	indexStrides[Dim-1] = 1;	// stride of the innermost coordinate in the nested 1-dimensional storage is '1'
 	

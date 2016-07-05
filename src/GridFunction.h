@@ -12,16 +12,28 @@
 namespace MultiDimGrid
 {
 	/**
-	 * A grid point is expected to be specified as a \c std::size_t \c std::array of length \a Dim.
+	 * Arrays of integer values of length \a Length are implemented as \c std::size_t \c std::arrays.
 	 */
-	template <std::size_t Dim>
-	using GridPoint = std::array<std::size_t, Dim>;
+	template <std::size_t Length>
+	using IntegerArray = std::array<std::size_t, Length>;
 	
 	/**
-	 * Coordinates are expected to be specified as a \c double \c std::array of length \a Dim.
+	 * Arrays of real values of length \a Length are implemented as \c double \c std::arrays.
+	 */
+	template <std::size_t Length>
+	using DoubleArray = std::array<double, Length>;
+	
+	/**
+	 * A grid point is expected to be specified as a MultiDimGrid::IntegerArray<\a Dim>.
 	 */
 	template <std::size_t Dim>
-	using Coordinates = std::array<double, Dim>;
+	using GridPoint = IntegerArray<Dim>;
+	
+	/**
+	 * Coordinates are expected to be specified as a MultiDimGrid::DoubleArray<\a Dim>.
+	 */
+	template <std::size_t Dim>
+	using Coordinates = DoubleArray<Dim>;
 	
 	/**
 	 * The coordinate axes of a grid are expected to be specified as a CoordinateAxis pointer \c std::array of length
@@ -135,30 +147,32 @@ namespace MultiDimGrid
 		Coordinates<Dim> coordinates_at_index_unchecked (std::size_t index) const;
 		
 		/**
-		 * Returns the integration weight of the grid point \a gridPoint.
+		 * Returns the integration weights corresponding to the individual coordinate axes at the grid point \a gridPoint.
 		 */
-		double integration_weight (const GridPoint<Dim>& gridPoint) const;
+		DoubleArray<Dim> integration_weights (const GridPoint<Dim>& gridPoint) const;
 		
 		/**
-		 * Returns the integration weight of the grid point \a gridPoint.
+		 * Returns the integration weights corresponding to the individual coordinate axes at the grid point \a gridPoint.
 		 * 
 		 * In contrast to GridFunction::integration_weight, this method does not check if \a gridPoint is within the range
 		 * of the grid. It is thus slightly faster, but unsafe!
 		 */
-		double integration_weight_unchecked (const GridPoint<Dim>& gridPoint) const;
+		DoubleArray<Dim> integration_weights_unchecked (const GridPoint<Dim>& gridPoint) const;
 		
 		/**
-		 * Returns the integration weight of the grid point with index \a index.
+		 * Returns the integration weights corresponding to the individual coordinate axes at the grid point with index
+		 * \a index.
 		 */
-		double integration_weight_at_index (std::size_t index) const;
+		DoubleArray<Dim> integration_weights_at_index (std::size_t index) const;
 		
 		/**
-		 * Returns the integration weight of the grid point with index \a index.
+		 * Returns the integration weights corresponding to the individual coordinate axes at the grid point with index
+		 * \a index.
 		 * 
 		 * In contrast to GridFunction::integration_weight_at_index, this method does not check if \a index is within the
 		 * range of the grid. It is thus slightly faster, but unsafe!
 		 */
-		double integration_weight_at_index_unchecked (std::size_t index) const;
+		DoubleArray<Dim> integration_weights_at_index_unchecked (std::size_t index) const;
 		
 		/**
 		 * Gives access to the function value at the grid point \a gridPoint by returning a \c reference to it.
@@ -285,10 +299,8 @@ namespace MultiDimGrid
 		 * Returns the index differences between neighbouring grid points along each coordinate axis.
 		 * 
 		 * This might be useful, if one wants to work with indices of grid points instead of the grid points themselves.
-		 * 
-		 * Note that the index differences are stored in the same format as a grid point.
 		 */
-		GridPoint<Dim> index_strides () const;
+		IntegerArray<Dim> index_strides () const;
 		
 		/**
 		 * Returns the total number of grid points.
@@ -319,10 +331,8 @@ namespace MultiDimGrid
 		 * 
 		 * If there are n axes, the indices of the grid points (i_0, ... , i_j, ... , i_(n-1)) and (i_0, ... , i_j + 1, ... , i_(n-1)),
 		 * for example, differ by (num_axis_pts_(j+1) * ... * num_axis_pts_(n-1)). This value is stored in GridFunction::IndexStrides[j].
-		 * 
-		 * The index differences are stored in the same format as a grid point.
 		 */
-		GridPoint<Dim> IndexStrides;
+		IntegerArray<Dim> IndexStrides;
 		
 		/**
 		 * Total number of grid points.
@@ -344,10 +354,9 @@ namespace MultiDimGrid
 		CoordinateAxisPointers<Dim> copy_coordinate_axes (const CoordinateAxisPointers<Dim>& coordAxisPointers) const;
 		
 		/**
-		 * Computes the index stride values corresponding the coordinate axes pointed to by the \a coordAxisPointers
-		 * and returns them in the format expected by GridFunction::IndexStrides.
+		 * Computes and returns the index stride values corresponding the coordinate axes pointed to by the \a coordAxisPointers.
 		 */
-		GridPoint<Dim> compute_index_strides (const CoordinateAxisPointers<Dim>& coordAxisPointers) const;
+		IntegerArray<Dim> compute_index_strides (const CoordinateAxisPointers<Dim>& coordAxisPointers) const;
 		
 		/**
 		 * Implements the interpolation in a nested fashion by recursively calling itself. In each recursion step the 1-dimensional

@@ -55,12 +55,12 @@ double MultiDimGrid::CoordinateAxis::upper_coordinate_limit () const
 	return UpperCoordinateLimit;
 }
 
-double MultiDimGrid::CoordinateAxis::interval_number () const
+std::size_t MultiDimGrid::CoordinateAxis::interval_number () const
 {
 	return IntervalNumber;
 }
 
-double MultiDimGrid::CoordinateAxis::point_number () const
+std::size_t MultiDimGrid::CoordinateAxis::point_number () const
 {
 	return PointNumber;
 }
