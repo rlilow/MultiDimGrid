@@ -9,6 +9,8 @@ CFLAGS=-O -Wall -pedantic -std=c++11 -fopenmp
 INCLUDE=-I $(GSL_INCLUDE_PATH)
 LINK=-L $(GSL_LIB_PATH) -lgsl
 
+LINK_DEPENDENCIES=$(wildcard $(GSL_LIB_PATH)/libgsl.a)
+
 LIBRARY=MultiDimGrid
 
 ARCHIVE_NAME=multidimgrid
@@ -40,7 +42,7 @@ all: $(LIB_OBJECTS) $(ARCHIVE_FILE) $(EXECUTABLES)
 
 -include $(LIB_DEPENDENCIES)
 
-%.o: %.cpp
+%.o: %.cpp $(LINK_DEPENDENCIES)
 	$(CC) -c $(CFLAGS) $(INCLUDE) $< -o $@ $(LINK)
 	@$(CC) -MM $< > $*.d
 	@\sed -i '1s|^|$(LIB_PATH)/|' $*.d
