@@ -64,7 +64,7 @@ clean:
 
 portable:
 	@\cp $(MAKE_NAME) $(MAKE_NAME).tmp
-	@\sed -i '2c\GSL_INCLUDE_PATH=.' $(MAKE_NAME)
-	@\sed -i '3c\GSL_LIB_PATH=.' $(MAKE_NAME)
+	@\sed -i"" '2c\GSL_INCLUDE_PATH=.' $(MAKE_NAME)
+	@\sed -i"" '3c\GSL_LIB_PATH=.' $(MAKE_NAME)
 	\tar -czf $(LIBRARY).tar.gz $(NECESSARY_FILES)
 	@\mv $(MAKE_NAME).tmp $(MAKE_NAME)
