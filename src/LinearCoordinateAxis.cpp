@@ -78,12 +78,16 @@ MultiDimGrid::LinearCoordinateAxis* MultiDimGrid::LinearCoordinateAxis::clone ()
 
 void MultiDimGrid::LinearCoordinateAxis::initialize_coordinates ()
 {
+	Coordinates.push_back( LowerCoordinateLimit ); // explicitly push back LowerCoordinateLimit to ensure that there are no rounding errors
+
 	const double equidistantSeparation = (UpperCoordinateLimit - LowerCoordinateLimit) / IntervalNumber;
 	
-	for ( std::size_t i_axisPoint = 0; i_axisPoint < PointNumber; ++i_axisPoint )
+	for ( std::size_t i_axisPoint = 1; i_axisPoint < IntervalNumber; ++i_axisPoint )
 	{
 		Coordinates.push_back( LowerCoordinateLimit + i_axisPoint * equidistantSeparation );
 	}
+
+	Coordinates.push_back( UpperCoordinateLimit ); // explicitly push back UpperCoordinateLimit to ensure that there are no rounding errors
 }
 
 void MultiDimGrid::LinearCoordinateAxis::initialize_integration_weights ()

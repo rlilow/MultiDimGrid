@@ -87,7 +87,7 @@ MultiDimGrid::LogarithmicCoordinateAxis* MultiDimGrid::LogarithmicCoordinateAxis
 
 void MultiDimGrid::LogarithmicCoordinateAxis::initialize_coordinates ()
 {
-	Coordinates.push_back( LowerCoordinateLimit );
+	Coordinates.push_back( LowerCoordinateLimit ); // explicitly push back LowerCoordinateLimit to ensure that there are no rounding errors
 		
 	const double logarithmicSeparation = (UpperLogLimit - LowerLogLimit) / IntervalNumber;
 	
@@ -98,7 +98,7 @@ void MultiDimGrid::LogarithmicCoordinateAxis::initialize_coordinates ()
 		Coordinates.push_back( std::pow(10.0, logarithmicCoordinate) );
 	}
 	
-	Coordinates.push_back( UpperCoordinateLimit );
+	Coordinates.push_back( UpperCoordinateLimit ); // explicitly push back UpperCoordinateLimit to ensure that there are no rounding errors
 }
 
 void MultiDimGrid::LogarithmicCoordinateAxis::initialize_integration_weights ()

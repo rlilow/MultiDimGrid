@@ -45,7 +45,7 @@ all: $(LIB_OBJECTS) $(ARCHIVE_FILE) $(EXECUTABLES)
 %.o: %.cpp $(LINK_DEPENDENCIES)
 	$(CC) -c $(CFLAGS) $(INCLUDE) $< -o $@ $(LINK)
 	@$(CC) -MM $< > $*.d
-	@\sed -i '1s|^|$(LIB_PATH)/|' $*.d
+	@\sed -i"" '1s|^|$(LIB_PATH)/|' $*.d
 
 $(ARCHIVE_FILE): $(LIB_OBJECTS) $(LIB_TEMPLATES) $(LIB_TEMPLATE_HEADERS)
 	\ar rcs $@ $^

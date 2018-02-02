@@ -126,11 +126,6 @@ namespace MultiDimGrid
 		virtual CoordinateAxis* clone () const = 0;
 		
 		/**
-		 * Default assignment operator.
-		 */
-		CoordinateAxis& operator= (const CoordinateAxis& otherCoordinateAxis) = default;
-		
-		/**
 		 * Default destructor.
 		 * 
 		 * It is virtual to make sure that you can delete an instance of a specific coordinate axis derived from this
@@ -149,8 +144,13 @@ namespace MultiDimGrid
 		 * Default copy-constructor.
 		 */
 		CoordinateAxis (const CoordinateAxis& otherCoordinateAxis) = default;
-		
-		/**
+
+        /**
+		 * Default assignment operator.
+		 */
+        CoordinateAxis &operator=(const CoordinateAxis &otherCoordinateAxis) = default;
+
+        /**
 		 * Lower coordinate limit.
 		 */
 		double LowerCoordinateLimit;
