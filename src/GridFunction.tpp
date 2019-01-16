@@ -361,7 +361,7 @@ MultiDimGrid::GridFunction<Dim>& MultiDimGrid::GridFunction<Dim>::operator= (con
 {
 	for ( std::size_t i_axis = 0; i_axis < Dim; ++i_axis )	// iterate through the different coordinate axes and assign each of them to the corresponding axis of 'otherGridFunction'
 	{
-		*(CoordAxes[i_axis]) = *(otherGridFunction.CoordAxes[i_axis]);
+		CoordAxes[i_axis] = otherGridFunction.CoordAxes[i_axis]->clone();
 	}
 	
 	IndexStrides = otherGridFunction.IndexStrides;
