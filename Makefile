@@ -7,7 +7,7 @@ CC=g++
 CFLAGS=-O3 -Wall -pedantic -std=c++11 -fopenmp
 
 INCLUDE=-I $(GSL_INCLUDE_PATH)
-LINK=-L $(GSL_LIB_PATH) -lgsl
+LINK=-L $(GSL_LIB_PATH) -lgsl -lgslcblas
 
 LINK_DEPENDENCIES=$(wildcard $(GSL_LIB_PATH)/libgsl.a)
 
