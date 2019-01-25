@@ -15,3 +15,9 @@ doc/
 
 # Do not track "makefile", as this is just a copy of "Makefile" with customized path variables.
 makefile
+
+# Do not track "MultiDimGrid.tar.gz", as this just contains a portable version of the library created via "make portable".
+MultiDimGrid.tar.gz
+
+# Do not track any hidden files.
+.*
