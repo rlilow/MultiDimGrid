@@ -1,4 +1,4 @@
-# If necessary, modify the paths to the GSL.
+# If necessary, modify the paths to GSL.
 GSL_INCLUDE_PATH=.
 GSL_LIB_PATH=.
 
@@ -45,7 +45,7 @@ all: $(LIB_OBJECTS) $(ARCHIVE_FILE) $(EXECUTABLES)
 %.o: %.cpp $(LINK_DEPENDENCIES)
 	$(CC) -c $(CFLAGS) $(INCLUDE) $< -o $@ $(LINK)
 	@$(CC) -MM $< > $*.d
-	@\sed -i"" "1s|^|$(LIB_PATH)/|" $*.d
+	@\sed -i.bak "1s|^|$(LIB_PATH)/|" $*.d && \rm $*.d.bak
 
 $(ARCHIVE_FILE): $(LIB_OBJECTS) $(LIB_TEMPLATES) $(LIB_TEMPLATE_HEADERS)
 	\ar rcs $@ $^
@@ -64,7 +64,7 @@ clean:
 
 portable:
 	@\cp $(MAKE_NAME) $(MAKE_NAME).tmp
-	@\sed -i"" "2c\GSL_INCLUDE_PATH=." $(MAKE_NAME)
-	@\sed -i"" "3c\GSL_LIB_PATH=." $(MAKE_NAME)
+	@\sed -i.bak "2c\GSL_INCLUDE_PATH=." $(MAKE_NAME) && \rm $(MAKE_NAME).bak
+	@\sed -i.bak "3c\GSL_LIB_PATH=." $(MAKE_NAME) && \rm $(MAKE_NAME).bak
 	\tar -czf $(LIBRARY).tar.gz $(NECESSARY_FILES)
 	@\mv $(MAKE_NAME).tmp $(MAKE_NAME)
