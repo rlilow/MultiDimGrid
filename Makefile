@@ -1,4 +1,3 @@
-# The rest usually does not need to be modified.
 CC=g++
 CFLAGS=-O3 -Wall -pedantic -std=c++11 -fopenmp -ffast-math -flto -march=native
 
