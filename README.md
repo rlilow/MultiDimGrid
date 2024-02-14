@@ -1,6 +1,38 @@
-1. The GSL has to be installed.
-2. If the headers or library files of the GSL cannot be found in the standard search paths, open "Makefile" contained in the MultiDimGrid root directory, and set the variables "GSL_INCLUDE_PATH" and "GSL_LIB_PATH" to the appropriate paths. Do not modify the rest of the file.
-3. Open a terminal in the MultiDimGrid root directory and run "make". This builds MultiDimGrid and generates a library file "libmultidimgrid.a" in the root directory.
-4. To use MultiDimGrid in your own code, link your program to "libmultidimgrid.a" as well as the GSL, and include the header file "MultiDimGrid.h".
-5. If Doxygen is installed, one can also generate the documentation of MultiDimGrid by running "make doc" in the root directory. Afterwards, the documentation can be found under "doc/documentation.html".
-6. A small program demonstrating the usage of MultiDimGrid can be found in the directory "demo". If you modify this, just run "make" in the MultiDimGrid root directory to rebuild it.
+# MultiDimGrid
+
+Library for creating discrete functions on a multi-dimensional grid spanned up by arbitrary coordinate axes
+
+## Installation
+
+### Download and compilation
+
+Clone the repository into the desired location and change into the root directory by running
+
+```bash
+git clone https://github.com/rlilow/MultiDimGrid.git
+cd MultiDimGrid
+```
+
+Afterwards run
+
+```bash
+make
+```
+
+## Usage
+
+To use MultiDimGrid in your own code, link your program to the static library file `libmultidimgrid.a` and include the header file `MultiDimGrid.h`. Both files are in the root directory.
+
+A small program demonstrating the usage of MultiDimGrid can be found in the directory `demo`. If you modify this, just re-run `make` in the root directory to rebuild it.
+
+## Documentation 
+
+If you have Doxygen (https://www.doxygen.nl/index.html) installed, you can build a detailed documentation of the different classes and functions in CORAS by running
+
+```bash
+make doc
+```
+
+from within the root directory.
+This will create the directory `doc` containing the documentation.
+To view it, open the file `doc/documentation.html` in the browser.
