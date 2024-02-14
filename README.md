@@ -1,6 +1,6 @@
 # MultiDimGrid
 
-Library for creating discrete functions on a multi-dimensional grid spanned up by arbitrary coordinate axes
+C++ library for creating discrete functions on a multi-dimensional grid spanned up by arbitrary coordinate axes
 
 ## Installation
 
