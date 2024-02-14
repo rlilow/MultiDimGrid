@@ -1,12 +1,12 @@
 #ifndef MULTIDIMGRID_H
 #define MULTIDIMGRID_H
 
-#include "src/GridFunction.h"
+#include "src/GridFunction.hpp"
 
-#include "src/LinearCoordinateAxis.h"
-#include "src/LinearLogarithmicCoordinateAxis.h"
-#include "src/LogarithmicCoordinateAxis.h"
-#include "src/SinglePointCoordinateAxis.h"
+#include "src/LinearCoordinateAxis.hpp"
+#include "src/LinearLogarithmicCoordinateAxis.hpp"
+#include "src/LogarithmicCoordinateAxis.hpp"
+#include "src/SinglePointCoordinateAxis.hpp"
 
 /**
  * \mainpage MultiDimGrid

@@ -21,7 +21,7 @@ make
 
 ## Usage
 
-To use MultiDimGrid in your own code, link your program to the static library file `libmultidimgrid.a` and include the header file `MultiDimGrid.h`. Both files are in the root directory.
+To use MultiDimGrid in your own code, link your program to the static library file `libmultidimgrid.a` and include the header file `MultiDimGrid.hpp`. Both files are in the root directory.
 
 A small program demonstrating the usage of MultiDimGrid can be found in the directory `demo`. If you modify this, just re-run `make` in the root directory to rebuild it.
 

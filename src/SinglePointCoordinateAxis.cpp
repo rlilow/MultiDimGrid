@@ -1,4 +1,4 @@
-#include "SinglePointCoordinateAxis.h"
+#include "SinglePointCoordinateAxis.hpp"
 
 #include <iostream>
 #include <string>

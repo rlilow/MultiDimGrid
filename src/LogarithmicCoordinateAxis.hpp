@@ -1,7 +1,7 @@
 #ifndef MULTIDIMGRID_LOGARITHMIC_COORDINATE_AXIS_H
 #define MULTIDIMGRID_LOGARITHMIC_COORDINATE_AXIS_H
 
-#include "CoordinateAxis.h"
+#include "CoordinateAxis.hpp"
 
 #include <vector>
 

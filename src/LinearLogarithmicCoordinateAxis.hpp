@@ -1,9 +1,9 @@
 #ifndef MULTIDIMGRID_LINEAR_LOGARITHMIC_COORDINATE_AXIS_H
 #define MULTIDIMGRID_LINEAR_LOGARITHMIC_COORDINATE_AXIS_H
 
-#include "CoordinateAxis.h"
-#include "LinearCoordinateAxis.h"
-#include "LogarithmicCoordinateAxis.h"
+#include "CoordinateAxis.hpp"
+#include "LinearCoordinateAxis.hpp"
+#include "LogarithmicCoordinateAxis.hpp"
 
 namespace MultiDimGrid
 {

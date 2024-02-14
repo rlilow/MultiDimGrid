@@ -1,7 +1,7 @@
 #ifndef MULTIDIMGRID_SINGLE_POINT_COORDINATE_AXIS_H
 #define MULTIDIMGRID_SINGLE_POINT_COORDINATE_AXIS_H
 
-#include "CoordinateAxis.h"
+#include "CoordinateAxis.hpp"
 
 namespace MultiDimGrid
 {

@@ -1,7 +1,7 @@
 #ifndef MULTIDIMGRID_GRID_FUNCTION_H
 #define MULTIDIMGRID_GRID_FUNCTION_H
 
-#include "CoordinateAxis.h"
+#include "CoordinateAxis.hpp"
 
 #include <array>
 #include <cstddef>

@@ -1,4 +1,4 @@
-#include "LinearLogarithmicCoordinateAxis.h"
+#include "LinearLogarithmicCoordinateAxis.hpp"
 
 #include <cmath>
 #include <iostream>

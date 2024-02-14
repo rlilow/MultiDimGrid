@@ -1,4 +1,4 @@
-#include "../MultiDimGrid.h"
+#include "../MultiDimGrid.hpp"
 
 #include <cmath>
 #include <iostream>

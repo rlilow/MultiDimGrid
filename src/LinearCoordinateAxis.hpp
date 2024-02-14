@@ -1,7 +1,7 @@
 #ifndef MULTIDIMGRID_LINEAR_COORDINATE_AXIS_H
 #define MULTIDIMGRID_LINEAR_COORDINATE_AXIS_H
 
-#include "CoordinateAxis.h"
+#include "CoordinateAxis.hpp"
 
 #include <vector>
 

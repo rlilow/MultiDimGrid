@@ -14,10 +14,10 @@ LIB_PATH=src
 EXE_PATH=demo
 DOC_PATH=doc
 
-LIB_HEADERS=$(wildcard $(LIB_PATH)/*.h) $(wildcard *.h)
+LIB_HEADERS=$(wildcard $(LIB_PATH)/*.hpp) $(wildcard *.hpp)
 LIB_SOURCES=$(wildcard $(LIB_PATH)/*.cpp)
 LIB_TEMPLATES=$(wildcard $(LIB_PATH)/*.tpp)
-LIB_TEMPLATE_HEADERS=$(LIB_TEMPLATES:.tpp=.h)
+LIB_TEMPLATE_HEADERS=$(LIB_TEMPLATES:.tpp=.hpp)
 LIB_OBJECTS=$(LIB_SOURCES:.cpp=.o)
 LIB_DEPENDENCIES=$(LIB_OBJECTS:.o=.d)
 
