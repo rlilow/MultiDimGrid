@@ -10,7 +10,7 @@
 
 /**
  * \mainpage MultiDimGrid
- * Allows to define discrete functions on a multi-dimensional grid spanned up by arbitrary coordinate axes.
+ * C++ library for creating discrete functions on a multi-dimensional grid with various available coordinate spacings
  * 
  * Author: Robert Lilow (2016)
  */
