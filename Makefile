@@ -1,15 +1,6 @@
-# If necessary, modify the paths to GSL.
-GSL_INCLUDE_PATH=.
-GSL_LIB_PATH=.
-
 # The rest usually does not need to be modified.
 CC=g++
 CFLAGS=-O3 -Wall -pedantic -std=c++11 -fopenmp -ffast-math -flto -march=native
-
-INCLUDE=-I $(GSL_INCLUDE_PATH)
-LINK=-L $(GSL_LIB_PATH) -lgsl -lgslcblas
-
-LINK_DEPENDENCIES=$(wildcard $(GSL_LIB_PATH)/libgsl.a)
 
 LIBRARY=MultiDimGrid
 
@@ -42,8 +33,8 @@ all: $(LIB_OBJECTS) $(ARCHIVE_FILE) $(EXECUTABLES)
 
 -include $(LIB_DEPENDENCIES)
 
-%.o: %.cpp $(LINK_DEPENDENCIES)
-	$(CC) -c $(CFLAGS) $(INCLUDE) $< -o $@ $(LINK)
+%.o: %.cpp
+	$(CC) -c $(CFLAGS) $< -o $@
 	@$(CC) -MM $< > $*.d
 	@\sed -i.bak "1s|^|$(LIB_PATH)/|" $*.d && \rm $*.d.bak
 
@@ -51,7 +42,7 @@ $(ARCHIVE_FILE): $(LIB_OBJECTS) $(LIB_TEMPLATES) $(LIB_TEMPLATE_HEADERS)
 	\ar rcs $@ $^
 
 %.x: %.cpp $(ARCHIVE_FILE)
-	$(CC) $(CFLAGS) $(INCLUDE) $< -o $@ -L. -l$(ARCHIVE_NAME) $(LINK)
+	$(CC) $(CFLAGS) $< -o $@ -L. -l$(ARCHIVE_NAME)
 
 $(DOC_PATH)/$(DOC_NAME).html: $(LIB_HEADERS) $(LIB_SOURCES) $(LIB_TEMPLATES)
 	\doxygen $(DOX_NAME)
@@ -63,8 +54,4 @@ clean:
 	\rm -f $(CLEAN_FILES)
 
 portable:
-	@\cp $(MAKE_NAME) $(MAKE_NAME).tmp
-	@\sed -i.bak "2c\GSL_INCLUDE_PATH=." $(MAKE_NAME) && \rm $(MAKE_NAME).bak
-	@\sed -i.bak "3c\GSL_LIB_PATH=." $(MAKE_NAME) && \rm $(MAKE_NAME).bak
 	\tar -czf $(LIBRARY).tar.gz $(NECESSARY_FILES)
-	@\mv $(MAKE_NAME).tmp $(MAKE_NAME)
