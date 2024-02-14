@@ -76,7 +76,7 @@ namespace MultiDimGrid
 	 * of the discrete function values that is multi-linear in the coordinate spacings for any coordinates within the range
 	 * of the grid. Furthermore, it allows to extract the coordinates and integration weights of each grid point.
 	 * 
-	 * Author: Robert Lilow, ITA, ZAH, Heidelberg University (2016)
+	 * Author: Robert Lilow (2016)
 	 */
 	template <std::size_t Dim>
 	class GridFunction

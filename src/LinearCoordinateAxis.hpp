@@ -13,7 +13,7 @@ namespace MultiDimGrid
 	 * The interpolation weights correspond to a linear interpolation and the integration weights to a summed trapezoidal
 	 * quadrature rule.
 	 * 
-	 * Author: Robert Lilow, ITA, ZAH, Heidelberg University (2016)
+	 * Author: Robert Lilow (2016)
 	 */
 	class LinearCoordinateAxis : public CoordinateAxis
 	{

@@ -12,7 +12,7 @@
  * \mainpage MultiDimGrid
  * Allows to define discrete functions on a multi-dimensional grid spanned up by arbitrary coordinate axes.
  * 
- * Author: Robert Lilow, ITA, ZAH, Heidelberg University (2016)
+ * Author: Robert Lilow (2016)
  */
 
 #endif
