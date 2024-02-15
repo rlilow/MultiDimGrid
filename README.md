@@ -4,6 +4,12 @@ C++ library for creating discrete functions on a multi-dimensional grid with var
 
 ## Installation
 
+### Install dependencies
+Before compiling the code, the following dependencies need to be installed:
+
+- [GCC](https://gcc.gnu.org/)
+- [GNU Make](https://www.gnu.org/software/make/)
+
 ### Download and compilation
 
 Clone the repository into the desired location and change into the root directory by running
