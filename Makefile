@@ -6,7 +6,7 @@ LIBRARY=MultiDimGrid
 ARCHIVE_NAME=multidimgrid
 DOX_NAME=Doxyfile
 MAKE_NAME=Makefile
-README_NAME=readme
+README_NAME=README.md
 DOC_NAME=documentation
 
 LIB_PATH=src
